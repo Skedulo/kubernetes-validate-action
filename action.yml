@@ -1,0 +1,26 @@
+# action.yml
+name: 'kubernetes-validate'
+description: 'Validate kubernetes resources based on kubernetes-validate'
+inputs:
+  directory:
+    description: Directory of files to validate
+    required: true
+  strict:
+    description: whether to use strict validation, rejecting unexpected properties
+    required: false
+    default: "false"
+  version:
+    description: version of kubernetes to use (defaults to latest version of kubernetes-validate)
+    required: false
+    default: latest
+
+outputs:
+  result:
+    description: Output of kubernetes-validate
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.strict }}
+    - ${{ inputs.version }}
+    - ${{ inputs.directory }}
