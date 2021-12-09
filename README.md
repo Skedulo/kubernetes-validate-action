@@ -26,8 +26,10 @@ The output of running kubernetes-validate
 
 ## Example usage
 
-uses: skedulo/kubernetes-validate@v1.22.0
+```
+uses: Skedulo/kubernetes-validate@v1.22.0
 with:
   directory: output
   strict: true
   version: 1.21.0
+```

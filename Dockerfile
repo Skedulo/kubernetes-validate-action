@@ -4,4 +4,4 @@ RUN pip install kubernetes-validate==1.22.0
 
 COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT entrypoint.sh
+ENTRYPOINT /entrypoint.sh
