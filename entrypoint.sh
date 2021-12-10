@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/sh -le
 
 args=""
 if [[ "$1" != "false" ]] ; then
