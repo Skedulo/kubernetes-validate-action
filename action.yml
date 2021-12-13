@@ -13,6 +13,10 @@ inputs:
     description: version of kubernetes to use (defaults to latest version of kubernetes-validate)
     required: false
     default: latest
+  quiet:
+    description: whether to output successful validations
+    required: false
+    default: true
 
 outputs:
   result:
@@ -23,4 +27,5 @@ runs:
   args:
     - ${{ inputs.strict }}
     - ${{ inputs.version }}
+    - ${{ inputs.quiet }}
     - ${{ inputs.directory }}
