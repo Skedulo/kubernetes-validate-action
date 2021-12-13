@@ -1,12 +1,4 @@
-#!/bin/sh
-
-function escape_whitespace {
-  local result="$1"
-  result="${result//'%'/'%25'}"
-  result="${result//$'\n'/'%0A'}"
-  result="${result//$'\r'/'%0D'}"
-  echo "$result"
-}
+#!/bin/ash
 
 if [ $# -lt 3 ]; then
   echo "expected: $0 <strict(true|false)> <version|latest> target"
@@ -24,15 +16,15 @@ if [[ "$2" != "latest" ]] ; then
 fi
 
 if [ -d "$3" ] ; then
-  output=$(find $3 -type f | xargs kubernetes-validate --quiet ${args})
+  output=$(find $3 -type f | xargs kubernetes-validate --quiet ${args} | sed -z -e 's/%/%25/g' -e "s/\n/%0A/g" -e "s/\r/%0D/g")
   rc=$?
 elif [ -f "$3" ] ; then
-  output=$(kubernetes-validate --quiet ${args} $3)
+  output=$(kubernetes-validate --quiet ${args} $3 | sed -z -e 's/%/%25/g' -e "s/\n/%0A/g" -e "s/\r/%0D/g")
   rc=$?
 else
   echo "unexpected: $3 should be a file or a directory"
   exit 2
 fi
 
-echo "::set-output name=output::$(escape_whitespace $output)"
+echo "::set-output name=output::${output}"
 exit $rc
