@@ -29,6 +29,6 @@ else
   echo "unexpected: $4 should be a file or a directory"
   exit 2
 fi
-output=$(echo $output | sed -z -e 's/%/%25/g' -e "s/\n/%0A/g" -e "s/\r/%0D/g")
+output=$(echo "$output" | sed -z -e 's/%/%25/g' -e "s/\n/%0A/g" -e "s/\r/%0D/g")
 echo "::set-output name=output::${output}"
 exit $rc
