@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/ash -x
 
 if [ $# -lt 3 ]; then
   echo "expected: $0 <strict(true|false)> <version|latest> target"
