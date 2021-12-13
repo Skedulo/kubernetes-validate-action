@@ -1,5 +1,13 @@
 #!/bin/sh
 
+function escape_whitespace {
+  local result="$1"
+  result="${result//'%'/'%25'}"
+  result="${result//$'\n'/'%0A'}"
+  result="${result//$'\r'/'%0D'}"
+  echo "$result"
+}
+
 if [ $# -lt 3 ]; then
   echo "expected: $0 <strict(true|false)> <version|latest> target"
   echo "got: $@"
@@ -26,5 +34,5 @@ else
   exit 2
 fi
 
-echo "::set-output name=output::$output"
+echo "::set-output name=output::$(escape_whitespace $output)"
 exit $rc
