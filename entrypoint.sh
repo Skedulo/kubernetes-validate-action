@@ -1,4 +1,4 @@
-#!/bin/ash -x
+#!/bin/ash -o pipefail
 
 if [ $# -lt 3 ]; then
   echo "expected: $0 <strict(true|false)> <version|latest> <quiet(true|false)> target"
