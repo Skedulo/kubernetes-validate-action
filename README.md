@@ -18,6 +18,11 @@ for the version of this action.
 Whether to enforce unexpected additional properties (this is useful
 to detect mis-named/mis-typed properties)
 
+### `nowarn`
+
+Whether to ignore warnings (typically because kubernetes-validate
+can't validate a resource against a Custom Resource Definition)
+
 ## Outputs
 
 ## `output`
@@ -27,7 +32,7 @@ The output of running kubernetes-validate
 ## Example usage
 
 ```
-uses: Skedulo/kubernetes-validate@v1.22.0
+uses: Skedulo/kubernetes-validate@v1.23.1
 with:
   directory: output
   strict: true

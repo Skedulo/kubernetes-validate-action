@@ -1,7 +1,7 @@
 FROM python:3.10.1-alpine3.15
 
 RUN apk add sed
-RUN pip install kubernetes-validate==1.22.1
+RUN pip install kubernetes-validate==1.23.1
 
 USER 1000
 

@@ -17,6 +17,10 @@ inputs:
     description: whether to output successful validations
     required: false
     default: true
+  nowarn:
+    description: whether to output warning messages (usually resources associated with CRDs)
+    required: false
+    default: false
 
 outputs:
   result:
@@ -28,4 +32,5 @@ runs:
     - ${{ inputs.strict }}
     - ${{ inputs.version }}
     - ${{ inputs.quiet }}
+    - ${{ inputs.nowarn }}
     - ${{ inputs.directory }}
