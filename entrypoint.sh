@@ -20,7 +20,7 @@ if [[ "$3" != "false" ]] ; then
 fi
 
 if [[ "$4" != "false" ]] ; then
-  args="${args} --nowarn"
+  args="${args} --no-warn"
 fi
 
 if [ -d "$5" ] ; then
