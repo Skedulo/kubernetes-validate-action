@@ -34,5 +34,5 @@ else
   exit 2
 fi
 output=$(echo -n "$output" | sed -z -e 's/%/%25/g' -e "s/\n/%0A/g" -e "s/\r/%0D/g")
-echo -n "::set-output name=output::${output}"
+echo -n "output=${output}" >> $GITHUB_OUTPUT
 exit $rc
