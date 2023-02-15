@@ -1,9 +1,7 @@
-FROM python:3.10.1-alpine3.15
+FROM python:3.10-alpine3.17
 
 RUN apk add sed
 RUN pip install kubernetes-validate==1.23.1
-
-USER 1000
 
 COPY entrypoint.sh /entrypoint.sh
 
