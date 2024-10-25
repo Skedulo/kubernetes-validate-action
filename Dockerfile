@@ -1,7 +1,6 @@
-FROM python:3.10-alpine3.17
+FROM ghcr.io/willthames/kubernetes-validate:v1.29.1-0
 
 RUN apk add sed
-RUN pip install kubernetes-validate==1.23.1
 
 COPY entrypoint.sh /entrypoint.sh
 
